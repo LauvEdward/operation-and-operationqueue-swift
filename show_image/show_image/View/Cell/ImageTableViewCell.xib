@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="128" id="KGk-i7-Jjw" customClass="ImageTableViewCell" customModule="show_image" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="419" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="419" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wpc-0T-FKB">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="128"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="Sih-aD-Rvn"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avu-7P-hap">
+                        <rect key="frame" x="200" y="11" width="199" height="106"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wpc-0T-FKB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6iP-Fp-odP"/>
+                    <constraint firstItem="avu-7P-hap" firstAttribute="leading" secondItem="wpc-0T-FKB" secondAttribute="trailing" id="8HR-fh-TUG"/>
+                    <constraint firstItem="wpc-0T-FKB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ic1-Ee-fXv"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="avu-7P-hap" secondAttribute="bottom" id="Ix9-2o-bE5"/>
+                    <constraint firstAttribute="bottom" secondItem="wpc-0T-FKB" secondAttribute="bottom" id="JSL-Ua-6wH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="avu-7P-hap" secondAttribute="trailing" id="ckv-bz-jxj"/>
+                    <constraint firstItem="avu-7P-hap" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="nhZ-gk-dHG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="avu-7P-hap" id="vd8-Qa-BEK"/>
+                <outlet property="imageShowView" destination="wpc-0T-FKB" id="NaS-zX-aH1"/>
+            </connections>
+            <point key="canvasLocation" x="209.42028985507247" y="122.54464285714285"/>
+        </tableViewCell>
+    </objects>
+</document>
