@@ -74,4 +74,20 @@ struct UrlsPhoto: Decodable {
 
 struct Photo: Decodable {
     var urls: UrlsPhoto
+    var description: String?
+}
+
+
+enum PhotoState {
+    case new, downloaded, filtered, failed
+}
+
+struct PhotoRecord {
+    var photo: Photo
+    var state = PhotoState.new
+    var image = UIImage(systemName: "questionmark")
+//    var
+    init(photo: Photo) {
+        self.photo = photo
+    }
 }

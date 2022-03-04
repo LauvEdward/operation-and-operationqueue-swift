@@ -19,6 +19,7 @@
 		CF3E13BF27CE1D2A002A994D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF3E13BD27CE1D2A002A994D /* HomeViewController.xib */; };
 		CF3E13C327CE2754002A994D /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3E13C127CE2754002A994D /* ImageTableViewCell.swift */; };
 		CF3E13C427CE2754002A994D /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF3E13C227CE2754002A994D /* ImageTableViewCell.xib */; };
+		CF3E13C727D06ACE002A994D /* OperationPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3E13C627D06ACE002A994D /* OperationPhoto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CF3E13BD27CE1D2A002A994D /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		CF3E13C127CE2754002A994D /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		CF3E13C227CE2754002A994D /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		CF3E13C627D06ACE002A994D /* OperationPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationPhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		CF3E139E27CE13A4002A994D /* show_image */ = {
 			isa = PBXGroup;
 			children = (
+				CF3E13C527D06AB6002A994D /* Operation */,
 				CF3E13B927CE1D00002A994D /* View */,
 				CF3E13B827CE1C96002A994D /* Networks */,
 				CF3E13B327CE1B0F002A994D /* Model */,
@@ -115,6 +118,14 @@
 				CF3E13C227CE2754002A994D /* ImageTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CF3E13C527D06AB6002A994D /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				CF3E13C627D06ACE002A994D /* OperationPhoto.swift */,
+			);
+			path = Operation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +202,7 @@
 			files = (
 				CF3E13C327CE2754002A994D /* ImageTableViewCell.swift in Sources */,
 				CF3E13B727CE1C8D002A994D /* ServiceManager.swift in Sources */,
+				CF3E13C727D06ACE002A994D /* OperationPhoto.swift in Sources */,
 				CF3E13A427CE13A4002A994D /* ViewController.swift in Sources */,
 				CF3E13A027CE13A4002A994D /* AppDelegate.swift in Sources */,
 				CF3E13B527CE1B2B002A994D /* PhotosModel.swift in Sources */,
