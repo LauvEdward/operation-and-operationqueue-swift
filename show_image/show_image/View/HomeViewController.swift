@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var listPhoto: [PhotoRecord] = []
     let pendingOperations = PendingOperation()
+    let imageOperationManager = ImageOperationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupUI() {
+        self.title = "List Photo"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -65,14 +67,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.accessoryView = indicator
         }
         let indicator = cell.accessoryView as! UIActivityIndicatorView
-        let photo = listPhoto[indexPath.row]
+        var photo = listPhoto[indexPath.row]
         cell.textLabel?.text = photo.photo.description
         cell.imageView?.image = photo.image
         //        cell.setupUI(urlString: self.listPhoto![indexPath.row].photo.urls.thumb, description: self.listPhoto![indexPath.row].description ?? "Phuc")
         switch photo.state {
         case .downloaded, .new:
             indicator.startAnimating()
-            startOperations(for: photo, at: indexPath)
+            startOperations(at: indexPath)
         case .failed:
             indicator.stopAnimating()
             cell.textLabel?.text = "Failed to load"
@@ -86,8 +88,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return UIScreen.main.bounds.height / 7
     }
     
-    func startOperations(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
-        
+    func startOperations(at indexPath: IndexPath) {
+        print(listPhoto[indexPath.row].state)
+        switch listPhoto[indexPath.row].state {
+        case .downloaded:
+            imageOperationManager.startFiltration(for: listPhoto[indexPath.row], at: indexPath) { [self] indexPath, photoState in
+                listPhoto[indexPath.row].state = photoState
+                DispatchQueue.main.async {
+                    self.tableView.reloadRows(at: [indexPath], with: .fade)
+                }
+            }
+        case .new:
+            imageOperationManager.startDownload(for: listPhoto[indexPath.row], at: indexPath) { [self] indexPath, photoState in
+                listPhoto[indexPath.row].state = photoState
+                DispatchQueue.main.async {
+                    self.tableView.reloadRows(at: [indexPath], with: .fade)
+                }
+            }
+        default:
+            print("do nothing")
+        }
     }
 }
 
