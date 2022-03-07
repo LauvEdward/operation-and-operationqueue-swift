@@ -92,15 +92,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         print(listPhoto[indexPath.row].state)
         switch listPhoto[indexPath.row].state {
         case .downloaded:
-            imageOperationManager.startFiltration(for: listPhoto[indexPath.row], at: indexPath) { [self] indexPath, photoState in
-                listPhoto[indexPath.row].state = photoState
+            imageOperationManager.startFiltration(for: listPhoto[indexPath.row], at: indexPath) { [self] indexPath, photo in
+                print("==== state after fillter \(photo.state)")
+                listPhoto[indexPath.row] = photo
                 DispatchQueue.main.async {
                     self.tableView.reloadRows(at: [indexPath], with: .fade)
                 }
             }
         case .new:
-            imageOperationManager.startDownload(for: listPhoto[indexPath.row], at: indexPath) { [self] indexPath, photoState in
-                listPhoto[indexPath.row].state = photoState
+            imageOperationManager.startDownload(for: listPhoto[indexPath.row], at: indexPath) { [self] indexPath, photo in
+                print("==== state after download \(photo.state)")
+                listPhoto[indexPath.row] = photo
                 DispatchQueue.main.async {
                     self.tableView.reloadRows(at: [indexPath], with: .fade)
                 }

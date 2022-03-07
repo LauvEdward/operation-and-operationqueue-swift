@@ -85,7 +85,7 @@ enum PhotoState {
 struct PhotoRecord {
     var photo: Photo
     var state = PhotoState.new
-    var image = UIImage(systemName: "questionmark")
+    var image = UIImage(named: "Placeholder")
 //    var
     init(photo: Photo) {
         self.photo = photo

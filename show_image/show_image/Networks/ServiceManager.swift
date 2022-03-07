@@ -14,7 +14,7 @@ enum NetWorkError: Error {
 
 class ServiceManager {
     static let share = ServiceManager()
-    var url: String = "https://api.unsplash.com/photos?client_id=iQaYbNGUdDpQDrVWJpJGKHFTChxr22iAWWDN6z8Outs"
+    var url: String = "https://api.unsplash.com/photos?client_id=iQaYbNGUdDpQDrVWJpJGKHFTChxr22iAWWDN6z8Outs&per_page=100"
     func fetchImage(completion: @escaping (Result<[Photo], NetWorkError>) -> Void) {
         guard let url = URL(string: url) else {
             completion(.failure(.BaseURL))
